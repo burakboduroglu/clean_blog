@@ -1,0 +1,57 @@
+<%- include('partials/_header') -%>
+
+<body>
+
+  <!-- Navigation -->
+  <%- include('partials/_navigation') -%>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/contact-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Add New Post</h1>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <form novalidate method="POST" action="/blogs/<%= blog._id %>?_method=PUT">
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <input type="text" name="title" class="form-control" value="<%= blog.title %>" required data-validation-required-message="Please enter a Title.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <textarea rows="5" name="detail" class="form-control" placeholder="Detail" required data-validation-required-message="Please enter a Detail."><%= blog.detail %>
+              </textarea>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <div id="success"></div>
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">UPDATE</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Footer -->
+  <%- include('partials/_footer.ejs') -%>
+
+
+</body>
+
+</html>
